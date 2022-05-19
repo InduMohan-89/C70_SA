@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as Permissions from "expo-permissions";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import { TextInput } from "react-native-gesture-handler";
+import { CAMERA } from "expo-permissions";
 
 export default class TransactionScreen extends Component {
   constructor(props) {
@@ -10,7 +12,9 @@ export default class TransactionScreen extends Component {
       domState: "normal",
       hasCameraPermissions: null,
       scanned: false,
-      scannedData: ""
+      scannedData: "",
+      bookId:"",
+      studentId:""
     };
   }
 
