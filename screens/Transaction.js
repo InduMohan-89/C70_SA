@@ -40,8 +40,8 @@ export default class TransactionScreen extends Component {
   };
 
   render() {
-    const { domState, hasCameraPermissions, scannedData, scanned } = this.state;
-    if (domState === "scanner") {
+    const { domState, hasCameraPermissions, scanned,scannedData, ,bookId,studentId } = this.state;
+    if (domState !== "normal") {
       return (
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : this.handleBarCodeScanned}
@@ -52,15 +52,10 @@ export default class TransactionScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
-          {hasCameraPermissions ? scannedData : "Request for Camera Permission"}
-        </Text>
-        <TouchableOpacity
-          style={[styles.button, { marginTop: 25 }]}
-          onPress={() => this.getCameraPermissions("scanner")}
-        >
-          <Text style={styles.buttonText}>Scan QR Code</Text>
-        </TouchableOpacity>
+        <View style={styles.upperContainer}></View>
+        <View style={styles.lowerContainer}>
+          <View style={styles.textInputContainer}></View>
+          </View>
       </View>
     );
   }
